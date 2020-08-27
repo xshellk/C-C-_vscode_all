@@ -6,12 +6,200 @@ using namespace std;
 #define HELLO "hello world";
 
 typedef decltype(nullptr) nullptr_t;
-
+class A
+{
+public:
+	static A* get_a_point()
+	{
+		return new A();
+	}
+	int val;
+	bool key;
+private:
+	A() :val(10), key(true)
+	{}
+};
 int main()
 {
-
+	A* p = A::get_a_point();
+	cout << p->val << endl << p->key << endl;
 	return 0;
 }
+//int main()
+//{
+//	int *p = new int[2];
+//	int *arr[5];
+//	for (int i = 0; i < 5; i++)
+//	{
+//		arr[i] = new(p + i) int(i);
+//	}
+//	for (int i = 0; i < 5; i++)
+//	{
+//		cout << *arr[i] << endl;
+//	}
+//	return 0;
+//}
+//int main()
+//{
+//	int *p = new int[10];
+//	int *arr[10];
+//
+//	for (int i = 0; i < 10; i++)
+//	{
+//		arr[i] = new(p + i) int(i);
+//	}
+//
+//	for (int i = 0; i < 10; i++)
+//	{
+//		cout << *arr[i] << endl;
+//	}
+//	for (auto e : arr)
+//	{
+//		cout << *e << endl;
+//	}
+//	return 0;
+//}
+//class A
+//{
+//public:
+//	int pub_val;
+//	class pub_cla
+//	{
+//	public:
+//		int pub_cla_val;
+//	};
+//private:
+//	int pri_val;
+//	class pri_cla
+//	{
+//	public:
+//		int pri_cla_val;
+//	};
+//};
+//
+//int main()
+//{
+//	cout << sizeof(A) << endl;
+//	cout << sizeof(A::pub_cla) << endl;
+//	A a;
+//	A::pub_cla aa;
+//	return 0;
+//}
+
+//class A
+//{
+//	friend ostream& operator<<(ostream&out, const A&val);
+//public:
+//	A() :val(10), c('h'), dou(1.1)
+//	{}
+//private:
+//
+//	int val;
+//	char c;
+//	double dou;
+//};
+//
+//ostream& operator<<(ostream&out, const A& val)
+//{
+//	out << val.val << endl;
+//	out << val.c << endl;
+//	out << val.dou << endl;
+//	return out;
+//}
+//int main()
+//{
+//	A a;
+//	cout << a << endl;
+//	return 0;
+//}
+//class A
+//{
+//public:
+//	A() :const_i(1), val(10)
+//	{}
+//	const int const_i;
+//	int i;
+//	const static int val;
+//	static void st_fun()
+//	{
+//
+//	}
+//	void no_const_fun()
+//	{}
+//	void fun()
+//	{
+//		no_const_fun();
+//		const_fun();
+//		cout << const_i << endl;
+//	}
+//	void const_fun()const
+//	{
+//		no_const_fun();
+//		fun();
+//	}
+//
+//};
+//const int A::val = 10;
+//int main()
+//{
+//	A a;
+//	const A const_a;
+//	a.const_fun;
+//	a.const_i;
+//
+//	const_a.no_const_fun();	
+//	const_a.i = 10;
+//}
+
+//class test
+//{
+//public:
+//	test() :c_i(10)
+//	{}
+//	static const int st_c_i;
+//	const int c_i;
+//};
+//const int test::st_c_i = 10;
+
+//class A
+//{
+//	A()//¹¹Ôìº¯Êý
+//	{}
+//	A(const A &tmp)
+//	{}
+//	A& operator=(const A &val)
+//	{}
+//	A* operator&(A &tmp)
+//	{}
+//	const A* operator&(const A &tmp)
+//	{}
+//	~A()
+//	{}
+//
+//};
+//class A
+//{
+//public:
+//	static void st_fun(A * p)
+//	{
+//		cout << "A :" << p->val << endl;
+//	}
+//	void fun()
+//	{
+//		cout << "A :" << val << endl;
+//	}
+//public:
+//	A(int _val = 10) :val(_val)
+//	{}
+//	int val;
+//};
+//int main()
+//{
+//	A a;
+//	A::st_fun(&a);
+//	a.fun();
+//	return 0;
+//}
 //void A::fun()
 //{
 //	cout << "hello world" << endl;
